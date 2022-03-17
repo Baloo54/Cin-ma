@@ -1,0 +1,23 @@
+@font-face {
+    font-family: '../../police/FilmLetters';
+    src: url('../../police/FilmLetters.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: '../../Cinematic-Language';
+    src: url('../../Cinematic-Language.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+.lo
+{
+	font-family: "../../police/FilmLetters";
+    font-size: 60px;
+
+}
+h4
+{
+    font-size: 30px;
+    font-family: "../../police/police/FilmLetters";
+}
