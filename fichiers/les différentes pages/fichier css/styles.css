@@ -1,23 +1,29 @@
 @font-face {
-    font-family: '../../police/FilmLetters';
+    font-family: 'FilmLetters';
     src: url('../../police/FilmLetters.ttf');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
-    font-family: '../../Cinematic-Language';
+    font-family: 'Cinematic-Language';
     src: url('../../Cinematic-Language.ttf');
     font-weight: normal;
     font-style: normal;
 }
 .titre
 {
-	font-family: "../../police/FilmLetters";
+	font-family: "FilmLetters";
     font-size: 60px;
 
 }
 h4
 {
     font-size: 30px;
-    font-family: "../../police/police/FilmLetters";
+    font-family: "Cinematic-Language";
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    border: solid;
 }
