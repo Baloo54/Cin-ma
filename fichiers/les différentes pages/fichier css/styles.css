@@ -25,5 +25,6 @@ h4
 header{
     display: flex;
     justify-content: space-around;
-    border: solid;
+    border: 1px black solid;
+    border-radius: 40px;
 }
