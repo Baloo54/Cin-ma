@@ -5,8 +5,8 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'Cinematic-Language';
-    src: url('../../Cinematic-Language.ttf');
+    font-family: 'Kid Knowledge 1';
+    src: url('../../police/Kid Knowledge 1.otf');
     font-weight: normal;
     font-style: normal;
 }
@@ -16,10 +16,10 @@
     font-size: 60px;
 
 }
-h4
+.pute
 {
-    font-size: 30px;
-    font-family: "Cinematic-Language";
+    font-size: 35px;
+    font-family: "Kid Knowledge 1";
 }
 
 header{
