@@ -21,8 +21,8 @@
 {
     font-size: 35px;
     font-family: "Kid Knowledge 1";
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: auto;
+    width: 80%;
     text-align: justify;
 }
 
@@ -49,4 +49,9 @@ header{
 }
 a{
     cursor: url("../../../fichiers/images/logo (3).png") 4 12, default;
+}
+
+.center{
+    width: 80%;
+    margin: auto;
 }
