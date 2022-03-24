@@ -13,6 +13,7 @@
 .titre
 {
 	font-family: "FilmLetters";
+    text-align: center;
     font-size: 60px;
 
 }
@@ -20,6 +21,9 @@
 {
     font-size: 35px;
     font-family: "Kid Knowledge 1";
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
 }
 
 header{
@@ -46,4 +50,3 @@ header{
 a{
     cursor: url("../../../fichiers/images/logo (3).png") 4 12, default;
 }
-
