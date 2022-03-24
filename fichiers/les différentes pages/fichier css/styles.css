@@ -51,7 +51,8 @@ a{
     cursor: url("../../../fichiers/images/logo (3).png") 4 12, default;
 }
 
-.center{
-    width: 80%;
-    margin: auto;
+.center
+{
+    margin-top: 3%;
+    text-align: center;
 }
