@@ -56,3 +56,16 @@ a{
     margin-top: 3%;
     text-align: center;
 }
+
+footer
+{
+    margin-top: 10%;
+    border-top: 3px rgb(83, 144, 194) dashed;
+    display: flex;
+    justify-content: space-between;
+}
+.footi
+{
+    font-size: 35px;
+    font-family: "Kid Knowledge 1";
+}
