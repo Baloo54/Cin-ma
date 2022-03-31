@@ -1,0 +1,49 @@
+header{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(245, 245, 245);
+}
+
+.uwu{
+    display: none;
+}
+
+.uwu, .li, .lo{
+    font-size: 0.6em;
+}
+
+.titre{
+    font-size: 2.5em;
+}
+
+.pute, .center{
+    font-size: 1.1em;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: rgb(245, 245, 255);
+}
+
+#photolycée{
+    max-width: 30%;
+    height: 100%;
+    object-fit: cover;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.footi{
+    font-size: 1.2em;
+}
+
+.youtube{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
