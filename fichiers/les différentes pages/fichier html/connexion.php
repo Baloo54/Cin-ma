@@ -11,6 +11,19 @@
     </head>
     <body>
         <?php include("header.php"); ?>
+        <form method="get" action="submit_connexion.php">
+            <p>
+                <input type="text" name="name" id="name" placeholder="Nom">
+                <input type="text" name="firstname" id="firstname" placeholder="Prénom">
+            </p>
+            <p>
+                <input type="email" name="email" id="email" placeholder="E-mail">
+                <input type="password" name="password" id="password" placeholder="Mot de passe">
+            </p>
+            <p>
+                <button type="submit">Envoyer</button>
+            </p>
+        </form>
         <?php include("footer.php"); ?>
     </body>
 </html>
