@@ -12,12 +12,12 @@
     <body>
         <header>
             <!-- La où seront les liens pour changer les différentes pages de notre site.-->
-            <a href="index.html"><img src="fichiers/images/home_button.png" alt="home, accueil, homepage" width="50px" class="uwu"></a>
-            <a href="index.html" class="li"><h1>Accueil</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/infos.html" class="lo"><h1>Plus d'infos</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/news.html"class="lo"><h1>Actualités</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/creations.html"class="lo"><h1>Nos créations</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/connexion.html"class="lo"><h1>Connexion</h1></a>
+            <a href="index.php"><img src="fichiers/images/home_button.png" alt="home, accueil, homepage" width="50px" class="uwu"></a>
+            <a href="index.php" class="li"><h1>Accueil</h1></a>
+            <a href="fichiers/les différentes pages/fichier html/infos.php" class="lo"><h1>Plus d'infos</h1></a>
+            <a href="fichiers/les différentes pages/fichier html/news.php"class="lo"><h1>Actualités</h1></a>
+            <a href="fichiers/les différentes pages/fichier html/creations.php"class="lo"><h1>Nos créations</h1></a>
+            <a href="fichiers/les différentes pages/fichier html/connexion.php"class="lo"><h1>Connexion</h1></a>
         </header>
         <main>
             <h1 class="titre">Option Cinema Audio Visuel</h1>
