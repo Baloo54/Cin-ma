@@ -13,12 +13,12 @@
         <?php include("header.php"); ?>
         <form method="get" action="submit_connexion.php">
             <p>
-                <input type="text" name="name" id="name" placeholder="Nom">
-                <input type="text" name="firstname" id="firstname" placeholder="Prénom">
+                <input type="text" name="name" id="name" placeholder="Nom" maxlength="256">
+                <input type="text" name="firstname" id="firstname" placeholder="Prénom" maxlength="256">
             </p>
             <p>
-                <input type="email" name="email" id="email" placeholder="E-mail">
-                <input type="password" name="password" id="password" placeholder="Mot de passe">
+                <input type="email" name="email" id="email" placeholder="E-mail" maxlength="256">
+                <input type="password" name="password" id="password" placeholder="Mot de passe" maxlength="256">
             </p>
             <p>
                 <button type="submit">Envoyer</button>
