@@ -11,7 +11,16 @@
     </head>
     <body>
         <?php include("header.php"); ?>
-            
+        <?php
+            $sqlQuery = "INSERT INTO articles (title, author, author_picture, content, creation_date) VALUES (:title, :author, :author_picture, :content, NOW())";
+            $insertNews = $db->prepare($sqlQuery);
+            $insertNews->execute([
+                'title' => $_POST['title'],
+                'author' => $_SESSION["user"]['firstname'] . " " . $_SESSION["user"]['name'],
+                'author_picture' => $_SESSION["user"]['profile_picture'],
+                'content' => $_POST['content']
+            ]);
+        ?>
         <?php include("footer.php"); ?>
     </body>
 </html>

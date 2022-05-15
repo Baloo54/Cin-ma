@@ -12,42 +12,36 @@
     <body>
         <?php include("header.php"); ?>
         <?php
-            if (
-                isset($_POST["name"])
-                && isset($_POST["firstname"])
-                && isset($_POST["email"])
-                && isset($_POST["password"])
-                && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)
-                ) {
-                    echo "<p class='pute'>Bonjour " . strip_tags($_POST["firstname"]) . " " . strip_tags($_POST["name"]) . ". </p>";
-                    echo "<p class='pute'>Votre adresse e-mail est : " . strip_tags($_POST["email"]) . " et votre mot de passe est : " . strip_tags($_POST["password"]) . ". </p>";
-                } else {
-                    echo "<p class='pute'>Veuillez remplir tous les champs et utiliser une adresse e-mail valide. </p>";
-                }
-        ?>
-        <p class="pute">
+            ?>
             <?php
-                if (isset($_FILES["pictureFile"]["type"]) && $_FILES["pictureFile"]["error"] == 0) {
-                    if ($_FILES["pictureFile"]["size"] <= 1 * 10**6) {
-                        $fileInfo = pathinfo($_FILES["pictureFile"]["name"]);
-                        $fileType = $fileInfo["extension"];
-                        $allowedType = ["png", "jpg", "jpeg", "gif"];
-
-                        if (in_array($fileType, $allowedType)) {
-                            echo "Tout est bon. <br>";
-                            move_uploaded_file($_FILES["pictureFile"]["tmp_name"], "../../uploads/" . $_FILES["pictureFile"]["name"]);
-                            echo "<img class=\"pute\" src=\"../../uploads/" . $_FILES["pictureFile"]["name"] . "\" alt=\"photo de profil\">";
-                        } else {
-                            echo "Veuillez envoyer uniquement des images au format png, jpg, jpeg ou gif. ";
-                        }
-                    } else {
-                        echo "Le fichier est trop volumineux (supérieur à 1 Mo). ";
-                    }
+                $sqlQuery = "SELECT * FROM users WHERE email = :email AND password = :password";  // On récupère le nom de l'utilisateur
+                
+                $userStatement = $db->prepare($sqlQuery);  // On prépare la requête
+                $userStatement->execute(['email' => $_POST['email2'], 'password' => $_POST['password2']]);  // On exécute la requête
+                // ⚠ Le paramètre passé dans execute doit toujours être un tableau ⚠
+                $user = $userStatement->fetch();  // On récupère le résultat de la requête
+                echo "<pre>";
+                print_r($user);
+                echo "</pre>";
+                if ($user == NULL) {
+                    echo "E-mail ou mot de passse incorrect. ";
                 } else {
-                    echo "Veuillez insérer une photo de profil. ";
+                    echo "<p class=\"pute\">Bonjour " . $user["firstname"] . " " . $user["name"] . ". </p>";
+                    $_SESSION["isConnected"] = true;
+                    $_SESSION["user"] = $user;
                 }
             ?>
         </p>
+        <?php
+            echo "<pre>";
+            print_r($_POST);
+            echo "</pre>";
+        ?>
+        <?php
+            echo "<pre>";
+            print_r($_FILES);
+            echo "</pre>";
+        ?>
         <?php include("footer.php"); ?>
     </body>
 </html>

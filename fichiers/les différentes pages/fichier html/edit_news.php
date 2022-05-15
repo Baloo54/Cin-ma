@@ -11,7 +11,19 @@
     </head>
     <body>
         <?php include("header.php"); ?>
-            
+        <form method="post" action="submit_edit_news.php" enctype="multipart/form-data">
+            <p>
+                <label for="title">Titre :</label>
+                <input type="text" name="title" id="title" value="<?php echo $_POST["title"] ?>">
+            </p>
+            <p>
+                <label for="content">Contenu : </label>
+                <textarea name="content" id="content"><?php echo $_POST["content"]; ?></textarea>
+                <input type="hidden" name="id" id="id" value="<?php echo $_POST["id"] ?>">
+            <p>
+                <button type="submit">Envoyer</button>
+            </p>
+        </form>
         <?php include("footer.php"); ?>
     </body>
 </html>

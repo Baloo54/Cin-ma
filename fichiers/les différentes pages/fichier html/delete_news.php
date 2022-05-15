@@ -11,7 +11,14 @@
     </head>
     <body>
         <?php include("header.php"); ?>
-            
+        <?php
+            $sqlQuery = "DELETE FROM articles WHERE article_id = :id";
+            $deletedArticle = $db->prepare($sqlQuery);
+            $deletedArticle->execute([
+                "id" => $_POST["id"]
+            ]);
+        ?>
+        <p class="pute">L'article a bien été supprimé. </p>
         <?php include("footer.php"); ?>
     </body>
 </html>
