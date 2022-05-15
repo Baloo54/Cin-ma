@@ -1,3 +1,15 @@
+<?php
+    try {
+    $db = new PDO(
+        'mysql:host=localhost;dbname=cavvatelot;charset=utf8',
+        'root',
+        '',
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+    ); 
+    } catch (Exception $e) {
+        die('Erreur : ' . $e->getMessage());
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -17,7 +29,14 @@
             <a href="fichiers/les différentes pages/fichier html/infos.php" class="lo"><h1>Plus d'infos</h1></a>
             <a href="fichiers/les différentes pages/fichier html/news.php"class="lo"><h1>Actualités</h1></a>
             <a href="fichiers/les différentes pages/fichier html/creations.php"class="lo"><h1>Nos créations</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/connexion.php"class="lo"><h1>Connexion</h1></a>
+            <?php 
+                session_start();
+                if (isset($_SESSION["isConnected"]) && $_SESSION["isConnected"] == true) {
+                    echo "<a href=\"fichiers/les différentes pages/fichier html/connexion.php\"><img src=\"fichiers/les différentes pages/fichier html/" . $_SESSION["user"]["profile_picture"] . "\" alt=\"profile picture\" width=\"50px\" class=\"uwu\"></a>";
+                } else {
+                    echo "<a href=\"fichiers/les différentes pages/fichier html/connexion.php\" class=\"lo\"><h1>Connexion</h1></a>";
+                }
+            ?>
         </header>
         <main>
             <h1 class="titre">Option Cinema Audio Visuel</h1>
