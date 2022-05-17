@@ -39,9 +39,16 @@
             <div id="login">
                 <?php
                     if(isset($_SESSION["isConnected"]) && $_SESSION["isConnected"]) {
-                        echo "<form id=\"logout\" method=\"post\" action=\"logout.php\">
+                        echo "<h1>Vous êtes déjà connecté</h1>
+                            <p><form id=\"connectedForm\" method=\"post\" action=\"logout.php\">
                                 <button type=\"submit\">Se déconnecter</button>
-                            </form>";
+                            </form></p>
+                            <p><form id=\"connectedForm\" method=\"post\" action=\"edit_account.php\">
+                                <button type=\"submit\">Modifier le profil</button>
+                            </form></p>
+                            <p><form id=\"connectedForm\" method=\"post\" action=\"delete_account.php\">
+                                <button type=\"submit\">Supprimer le compte</button>
+                            </form></p>";
                     } else {
                         echo "<h1>Se connecter :</h1>
                         <form method=\"post\" action=\"submit_connexion.php\" enctype=\"multipart/form-data\">

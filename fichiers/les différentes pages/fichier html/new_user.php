@@ -30,9 +30,8 @@
                     $allowedType = ["png", "jpg", "jpeg", "gif"];
 
                     if (in_array($fileType, $allowedType)) {
-                        echo "Tout est bon. <br>";
+                        echo "<p class=\"pute\">Tout est bon. </p><br>";
                         move_uploaded_file($_FILES["pictureFile"]["tmp_name"], "../../uploads/" . $_FILES["pictureFile"]["name"]);
-                        echo "<img class=\"pute\" src=\"../../uploads/" . $_FILES["pictureFile"]["name"] . "\" alt=\"photo de profil\">";
                     } else {
                         echo "Veuillez envoyer uniquement des images au format png, jpg, jpeg ou gif. ";
                     }

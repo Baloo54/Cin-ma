@@ -45,7 +45,7 @@
                             <p class=\"pute\">" . $article['content'] . "</p>
                             <p>Publié le " . $article['creation_date'] . " par " . $article['author'] . "</p>
                         </div>";
-                        if ($_SESSION["user"]["firstname"] . " " . $_SESSION["user"]["name"] == $article['author']) {
+                        if (isset($_SESSION["user"]["user_id"]) && $_SESSION["user"]["user_id"] == $article['author_id']) {
                             echo "<p><form method=\"post\" action=\"delete_news.php\">
                                     <input type=\"hidden\" name=\"id\" value=\"" . $article['article_id'] . "\">
                                     <input type=\"hidden\" name=\"title\" value=\"" . $article['title'] . "\">

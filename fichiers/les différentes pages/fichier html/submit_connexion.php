@@ -21,7 +21,7 @@
                 // ⚠ Le paramètre passé dans execute doit toujours être un tableau ⚠
                 $user = $userStatement->fetch();  // On récupère le résultat de la requête
                 if ($user == NULL) {
-                    echo "E-mail ou mot de passse incorrect. ";
+                    echo "<p class=\"pute\">E-mail ou mot de passse incorrect. </p>";
                 } else {
                     echo "<p class=\"pute\">Bonjour " . $user["firstname"] . " " . $user["name"] . ". </p>";
                     $_SESSION["isConnected"] = true;

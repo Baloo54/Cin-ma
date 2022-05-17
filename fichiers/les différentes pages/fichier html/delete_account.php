@@ -12,16 +12,14 @@
     <body>
         <?php include("header.php"); ?>
         <?php
-            $sqlQuery = "INSERT INTO articles (title, author, author_id, author_picture, content, creation_date) VALUES (:title, :author, :author_id, :author_picture, :content, NOW())";
-            $insertNews = $db->prepare($sqlQuery);
-            $insertNews->execute([
-                'title' => $_POST['title'],
-                'author' => $_SESSION["user"]['firstname'] . " " . $_SESSION["user"]['name'],
-                'author_id' => $_SESSION["user"]['user_id'],
-                'author_picture' => $_SESSION["user"]['profile_picture'],
-                'content' => $_POST['content']
+            $sqlQuery = "DELETE FROM users WHERE user_id = :id";
+            $deleteAccount = $db->prepare($sqlQuery);
+            $deleteAccount->execute([
+                "id" => $_SESSION["user"]['user_id']
             ]);
+            session_destroy();
         ?>
+        <p class="pute">Votre compte a bien été supprimé. </p>
         <?php include("footer.php"); ?>
     </body>
 </html>
