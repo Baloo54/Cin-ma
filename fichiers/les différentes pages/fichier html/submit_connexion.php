@@ -20,9 +20,6 @@
                 $userStatement->execute(['email' => $_POST['email2'], 'password' => $_POST['password2']]);  // On exécute la requête
                 // ⚠ Le paramètre passé dans execute doit toujours être un tableau ⚠
                 $user = $userStatement->fetch();  // On récupère le résultat de la requête
-                echo "<pre>";
-                print_r($user);
-                echo "</pre>";
                 if ($user == NULL) {
                     echo "E-mail ou mot de passse incorrect. ";
                 } else {
@@ -32,16 +29,6 @@
                 }
             ?>
         </p>
-        <?php
-            echo "<pre>";
-            print_r($_POST);
-            echo "</pre>";
-        ?>
-        <?php
-            echo "<pre>";
-            print_r($_FILES);
-            echo "</pre>";
-        ?>
         <?php include("footer.php"); ?>
     </body>
 </html>
