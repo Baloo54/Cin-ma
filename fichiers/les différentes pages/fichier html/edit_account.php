@@ -35,9 +35,6 @@
         <form method="post" action="connexion.php">
             <button type="submit">Annuler</button>
         </form>
-        <?php 
-        echo "<pre>";
-        print_r($_SESSION);
-        echo "</pre>"; include("footer.php"); ?>
+        <?php include("footer.php"); ?>
     </body>
 </html>
