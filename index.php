@@ -12,13 +12,6 @@
     <body>
         <?php include("header.php"); ?>
         <main>
-            <p class="pute">
-                <?php 
-                    date_default_timezone_set("Europe/Paris"); // définit le fuseau horaire
-                    echo "aujourd'hui nous sommes le " . date("d/m/Y") . " et il est " . date("H:i:s"); 
-                    // indique la date et l'heure actuelle
-                ?>
-            </p>
             <h1 class="titre">Option Cinema Audio Visuel</h1>
             <p class="pute">
                 Déjà, bonjour et bienvenu à toutes personnes tombant sur ce
