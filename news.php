@@ -41,9 +41,9 @@
                     $article["creation_date"] = $article["creation_date"][2] . "/" . $article["creation_date"][1] . "/" . $article["creation_date"][0];
                     $article["content"] = nl2br($article["content"]);
                     echo "<div class=\"article\">
-                            <h1><img width=\"50px\" src=\"" . $article["author_picture"] . "\" alt=\"author profile picture\">" . $article['title'] . "</h1>
-                            <p class=\"pute\">" . $article['content'] . "</p>
-                            <p>Publié le " . $article['creation_date'] . " par " . $article['author'] . "</p>
+                        <h1><img width=\"50px\" src=\"" . $article["author_picture"] . "\" alt=\"author profile picture\">       " . htmlspecialchars($article['title']) . "</h1>
+                            <p class=\"pute\">" . htmlspecialchars($article['content']) . "</p>
+                            <p>Publié le " . $article['creation_date'] . " par " . htmlspecialchars($article['author']) . "</p>
                         </div>";
                         if (isset($_SESSION["user"]["user_id"]) && $_SESSION["user"]["user_id"] == $article['author_id']) {
                             echo "<p><form method=\"post\" action=\"delete_news.php\">

@@ -1,15 +1,3 @@
-<?php
-    try {
-    $db = new PDO(
-        'mysql:host=localhost;dbname=cavvatelot;charset=utf8',
-        'root',
-        '',
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-    ); 
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
-?>
 <!DOCTYPE html>
 <html lang="fr">
     <head>
@@ -22,23 +10,111 @@
         <link rel="icon" type="image/png" href="fichiers/images/logo.png">
     </head>
     <body>
-        <header>
-            <!-- La où seront les liens pour changer les différentes pages de notre site.-->
-            <a href="index.php"><img src="fichiers/images/home_button.png" alt="home, accueil, homepage" width="50px" class="uwu"></a>
-            <a href="index.php" class="li"><h1>Accueil</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/infos.php" class="lo"><h1>Plus d'infos</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/news.php"class="lo"><h1>Actualités</h1></a>
-            <a href="fichiers/les différentes pages/fichier html/creations.php"class="lo"><h1>Nos créations</h1></a>
-            <?php 
-                session_start();
-                if (isset($_SESSION["isConnected"]) && $_SESSION["isConnected"] == true) {
-                    echo "<a href=\"fichiers/les différentes pages/fichier html/connexion.php\"><img src=\"fichiers/les différentes pages/fichier html/" . $_SESSION["user"]["profile_picture"] . "\" alt=\"profile picture\" width=\"50px\" class=\"uwu\"></a>";
-                } else {
-                    echo "<a href=\"fichiers/les différentes pages/fichier html/connexion.php\" class=\"lo\"><h1>Connexion</h1></a>";
-                }
-            ?>
-        </header>
+        <?php include("header.php"); ?>
         <main>
+            <p class="pute">
+                <?php 
+                    date_default_timezone_set("Europe/Paris"); // définit le fuseau horaire
+                    echo "aujourd'hui nous sommes le " . date("d/m/Y") . " et il est " . date("H:i:s"); 
+                    // indique la date et l'heure actuelle
+                ?>
+            </p>
+            <p class="pute">
+                <?php
+                    $jean = ["Firstname" => "Jean", "Name" => "Dupont", "Age" => 25, "is admin" => true];
+                    $celine = ["Firstname" => "Céline",  "Name" => "Martin", "Age" => 33, "is admin" => false];
+                    $pierre = ["Firstname" => "Pierre", "Name" => "Masson", "Age" => 14, "is admin" => false];
+                    $valerie = ["Firstname" => "Valérie", "Name" => "Parrish", "Age" => 45, "is admin" => false];
+                    $users = [$jean, $celine, $pierre, $valerie];
+                    if ($users[0]["Firstname"] != null and $users[0]["Name"] != null and $users[0]["Age"] != null) {
+                    echo "<br>";
+                    } else {
+                        echo "Veuillez remplir tous les champs.";
+                    }
+
+                    if (array_key_exists("Prénom", $users[0])) {
+                        echo $users[0]["Prénom"] . "<br>";
+                    } else {
+                        echo "Cette clé n'existe pas. <br>";
+                    } // teste si la clé "Prénom" existe dans le tableau $users[0]
+
+                    if (in_array("Jean", $users[0])) {
+                        echo "Le prénom de Jean est présent dans le tableau. <br>";
+                    } else {
+                        echo "Le prénom de Jean n'est pas présent dans le tableau. <br>";
+                    } // teste si le prénom "Jean" est présent dans le tableau $users[0]
+
+                    $keyName = array_search("Jean", $users[0]);
+                    echo "La clé de Jean est : \"" . $keyName . "\" <br>"; 
+                    // affiche la clé de la valeur Jean dans $users[0]
+
+                    $isAdult = ($users[0]["Age"] >= 18) ? "Tu es majeur" : "Tu es mineur";
+                    // si l'age est supérieur ou égal à 18 attribue "Tu es majeur" sinon "Tu es mineur"
+                    echo $isAdult . " " . $users[0]["Firstname"] . ". <br><br>";
+
+                    $password = "qwerty";
+                    if (strlen($password) >= 8) {
+                        echo "Le mot de passe est assez long. <br>";
+                    } else {
+                        echo "Le mot de passe est trop court. <br>";
+                    } // teste si le mot de passe est assez long
+
+                    $importantInfo = "Ma bite est très longue";
+                    $importantInfo = str_replace("bite", "jambe", $importantInfo);
+                    echo $importantInfo . "<br>"; // remplace "bite" par "jambe" dans la variable $importantInfo
+
+                    $userInfo = ["Prénom" => "Jean", "Nom" => "Dupont", "Age" => 25];
+                    echo sprintf(
+                        "%s | %s <br> %s | %s <br> %s | %s <br>",
+                        "Prénom ",
+                        $userInfo["Prénom"],
+                        "Nom ",
+                        $userInfo["Nom"],
+                        "Age ",
+                        $userInfo["Age"]
+                    );
+                    
+                    echo "<br>";
+
+                    function isUserAdmin($user) : bool {
+                        if (array_key_exists("is admin", $user)) {
+                            $isAdmin = $user["is admin"];
+                        } else {
+                            $isAdmin = false;
+                        }
+                        return $isAdmin;
+                    }
+                    
+                    for ($i = 0; $i < count($users); $i++) {
+                        if (isUserAdmin($users[$i])) {
+                            echo "L'utilisateur " . $users[$i]["Firstname"] . " " . $users[$i]["Name"] . " est administrateur. <br>";
+                        } else {
+                            echo "L'utilisateur " . $users[$i]["Firstname"] . " " . $users[$i]["Name"] . " n'est pas administrateur. <br>";
+                        }
+                    }
+                    echo "<br>";
+                ?>
+                <?php if (isset($_SESSION["name"])
+                    && isset($_SESSION["firstname"])
+                    && isset($_SESSION["email"])
+                    && isset($_SESSION["password"])
+                    ) {
+                        echo "Bonjour ", $_SESSION["firstname"], " ", $_SESSION["name"], " ton adresse e-mail est : ", $_SESSION["email"], " et ton mot de passe est : ", $_SESSION["password"], ". ";
+                    } else {
+                        echo "Vous n'êtes pas connecté. <br>";
+                    }
+                ?>
+                <?php foreach ($users as $user): ?>
+                    <?php echo "Bonjour " . $user["Firstname"] . " " . $user["Name"] . " tu as " . $user["Age"] . " ans. <br>"; ?>
+                <?php endforeach; ?>
+            </p>
+            <?php
+                echo "<pre>";
+                print_r($users);
+                echo "</pre>";
+                /* ⚠️ rappel : print_r encadré des balises <pre> permet d'afficher les informations 
+                d'un tableau ⚠️ */
+            ?>
             <h1 class="titre">Option Cinema Audio Visuel</h1>
             <p class="pute">
                 Déjà, bonjour et bienvenu à toutes personnes tombant sur ce
@@ -81,3 +157,4 @@
 <!--Autres sources :-->
 <!--Chaîne CAV : https://www.youtube.com/channel/UC-HwennvrjpByhCshaQrCrA/videos -->
 <!--Site de l'école : https://www.jbvatelot.org -->
+<!--Fait par Gabriel COMTE et Aloïs MASSON-CLAUDEZ -->

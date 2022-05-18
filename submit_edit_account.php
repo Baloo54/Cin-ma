@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Option CAV | informations modifiées</title>
+        <title>Option CAV | plus d'infos</title>
         <link rel="stylesheet" href="../fichier css/styles.css">
         <link rel="stylesheet" media="screen and (max-width: 500px)" href="../fichier css/phone_styles.css">
         <link rel="icon" type="image/png" href="../../../fichiers/images/logo.png">
@@ -15,7 +15,7 @@
             if ($_FILES["pictureFile"]["name"] == NULL) {
                 $pictureFile = $_SESSION["user"]["profile_picture"];
             } else {
-                $pictureFile = "../../uploads/" . $_FILES["pictureFile"]["name"];
+                $pictureFile = "fichiers/uploads/" . $_FILES["pictureFile"]["name"];
                 if (isset($_FILES["pictureFile"]["type"]) && $_FILES["pictureFile"]["error"] == 0) {
                     if ($_FILES["pictureFile"]["size"] <= 1 * 10**6) {
                         $fileInfo = pathinfo($_FILES["pictureFile"]["name"]);
@@ -24,7 +24,7 @@
     
                         if (in_array($fileType, $allowedType)) {
                             echo "<p class=\"pute\">Tout est bon. </p><br>";
-                            move_uploaded_file($_FILES["pictureFile"]["tmp_name"], "../../uploads/" . $_FILES["pictureFile"]["name"]);
+                            move_uploaded_file($_FILES["pictureFile"]["tmp_name"], "fichiers/uploads/" . $_FILES["pictureFile"]["name"]);
                         } else {
                             echo "Veuillez envoyer uniquement des images au format png, jpg, jpeg ou gif. ";
                         }
